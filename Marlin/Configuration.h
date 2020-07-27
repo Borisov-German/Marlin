@@ -229,7 +229,7 @@
 #define TEMP_SENSOR_1 0
 #define TEMP_SENSOR_2 0
 #define TEMP_SENSOR_3 0
-#define TEMP_SENSOR_BED 0
+#define TEMP_SENSOR_BED 1
 
 // This makes temp sensor 1 a redundant sensor for sensor 0. If the temperatures difference between these sensors is to high the print will be aborted.
 //#define TEMP_SENSOR_1_AS_REDUNDANT
@@ -373,7 +373,7 @@
  */
 
 #define THERMAL_PROTECTION_HOTENDS // Enable thermal protection for all extruders
-#define THERMAL_PROTECTION_BED     // Enable thermal protection for the heated bed
+//#define THERMAL_PROTECTION_BED     // Enable thermal protection for the heated bed
 
 //===========================================================================
 //============================= Mechanical Settings =========================
@@ -577,7 +577,7 @@
 // Invert the stepper direction. Change (or reverse the motor connector) if an axis goes the wrong way.
 #define INVERT_X_DIR false
 #define INVERT_Y_DIR true
-#define INVERT_Z_DIR false
+#define INVERT_Z_DIR true
 
 // @section extruder
 
@@ -610,7 +610,7 @@
 #define Z_MIN_POS 0
 #define X_MAX_POS 200
 #define Y_MAX_POS 200
-#define Z_MAX_POS 200
+#define Z_MAX_POS 220
 
 //===========================================================================
 //========================= Filament Runout Sensor ==========================
@@ -749,9 +749,9 @@
 
 // default settings
 
-#define DEFAULT_AXIS_STEPS_PER_UNIT   {80,80,4000,500}  // default steps per unit for Ultimaker
-#define DEFAULT_MAX_FEEDRATE          {300, 300, 5, 25}    // (mm/sec)
-#define DEFAULT_MAX_ACCELERATION      {3000,3000,100,10000}    // X, Y, Z, E maximum start speed for accelerated moves. E default values are good for Skeinforge 40+, for older versions raise them a lot.
+#define DEFAULT_AXIS_STEPS_PER_UNIT   {100,100,400,150}  // default steps per unit for Ultimaker
+#define DEFAULT_MAX_FEEDRATE          {500, 400, 2, 25}    // (mm/sec)
+#define DEFAULT_MAX_ACCELERATION      {9000,9000,50,10000}    // X, Y, Z, E maximum start speed for accelerated moves. E default values are good for Skeinforge 40+, for older versions raise them a lot.
 
 #define DEFAULT_ACCELERATION          3000    // X, Y, Z and E acceleration in mm/s^2 for printing moves
 #define DEFAULT_RETRACT_ACCELERATION  3000    // E acceleration in mm/s^2 for retracts
@@ -777,7 +777,7 @@
 // M501 - reads parameters from EEPROM (if you need reset them after you changed them temporarily).
 // M502 - reverts to the default "factory settings".  You still need to store them in EEPROM afterwards if you want to.
 //define this to enable EEPROM support
-//#define EEPROM_SETTINGS
+#define EEPROM_SETTINGS
 
 #if ENABLED(EEPROM_SETTINGS)
   // To disable EEPROM Serial responses and decrease program space by ~1700 byte: comment this out:
@@ -981,7 +981,7 @@
 // SD Card support is disabled by default. If your controller has an SD slot,
 // you must uncomment the following option or it won't work.
 //
-//#define SDSUPPORT
+#define SDSUPPORT
 
 //
 // SD CARD: SPI SPEED
@@ -1125,7 +1125,7 @@
 //
 // Note: Usually sold with a white PCB.
 //
-//#define REPRAP_DISCOUNT_SMART_CONTROLLER
+#define REPRAP_DISCOUNT_SMART_CONTROLLER
 
 //
 // GADGETS3D G3D LCD/SD Controller
@@ -1282,7 +1282,7 @@
 // leaving it undefined or defining as 0 will disable the servo subsystem
 // If unsure, leave commented / disabled
 //
-//#define NUM_SERVOS 3 // Servo index starts with 0 for M280 command
+#define NUM_SERVOS 1 // Servo index starts with 0 for M280 command
 
 // Delay (in microseconds) before the next move will start, to give the servo time to reach its target angle.
 // 300ms is a good value but you can try less delay.
